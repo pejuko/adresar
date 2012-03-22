@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t(:city) %>:</b>
+  <%= @address.city %>
+</p>
+
+<p>
+  <b><%= t(:street) %>:</b>
+  <%= @address.street %>
+</p>
+
+<p>
+  <b><%= t(:psc) %>:</b>
+  <%= @address.psc %>
+</p>
+
+
+<%= link_to t(:edit), edit_address_path(@address) %> |
+<%= link_to t(:back), addresses_path %>

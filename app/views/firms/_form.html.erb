@@ -1,0 +1,44 @@
+<% @firm.tags.build %>
+<% @firm.addresses.build %>
+<%= form_for(@firm) do |f| %>
+  <% if @firm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@firm.errors.count, "error") %> prohibited this firm from being saved:</h2>
+
+      <ul>
+      <% @firm.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label t(:title) %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label t(:ico) %><br />
+    <%= f.text_field :ico %>
+  </div>
+  <div class="field">
+    <%= f.label t(:note) %><br />
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label t(:web) %><br />
+    <%= f.text_field :web %>
+  </div>
+
+  <b><%= t(:tags) %></b>
+  <%= render :partial => 'tags/form',
+             :locals  => {:form => f} %>
+
+  <%= render :partial => 'addresses/form',
+             :locals  => {:form => f} %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -1,0 +1,34 @@
+<%= form.fields_for :addresses do |f| %>
+
+  <b><%= t(:address) %></b>
+  <% unless f.object.nil? || f.object.new_record? %>
+    <span class="field">
+      <%= f.check_box :_destroy %>
+      <%= f.label :_destroy, t(:remove) %>
+    </span>
+  <% end %>
+
+<div class="address">
+
+  <div class="field">
+    <%= f.label t(:city) %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label t(:street) %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label t(:psc) %><br />
+    <%= f.text_field :psc %>
+  </div>
+
+  <div class="contacts">
+  <% f.object.contacts.build if f.object %>
+  <%= render :partial => 'contacts/form',
+             :locals  => {:form => f} %>
+  </div>
+
+</div>
+
+<% end %>

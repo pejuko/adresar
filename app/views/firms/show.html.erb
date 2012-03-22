@@ -1,0 +1,13 @@
+<%= render :partial => 'entry', :locals => {:firm => @firm} %>
+
+<div>
+  <b><%= t(:tags) %></b>
+  <% @firm.tags.each do |tag| %>
+    <%= link_to tag.name, tag %>
+  <% end %>
+</div>
+<br />
+<div>
+  <%= link_to t(:edit), edit_firm_path(@firm) %>
+  <%= link_to t(:destroy), @firm, confirm: t(:confirm), method: :delete %>
+</div>

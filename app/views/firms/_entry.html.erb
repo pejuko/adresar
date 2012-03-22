@@ -1,0 +1,24 @@
+<div class="vcard">
+  <div><b><%= t(:title) %>:</b> <span class="fn org"><%= link_to firm.title, firm %></span></div>
+  <div><b><%= t(:web) %>:</b> <span class="url"><a href="<%= firm.web %>"><%= firm.web %></a></span></div>
+  <div><b><%= t(:ico) %>:</b> <span class="uid"><%= firm.ico %></span></div>
+  <div><b><%= t(:note) %>:</b> <span class="note"><%= firm.note %></span></div>
+  <% firm.addresses.each do |address| %>
+    <b><%= t(:address) %></b><br />
+    <div class="adr">
+      <div class="street-address"><%= address.street %></div>
+      <div><span class="postal-code"><%= address.psc %></span>&nbsp;<span class="locality"><%= address.city %></span></div>
+    </div>
+    <% address.contacts.each do |contact| %>
+      <b><%= t(:contact) %></b><br />
+      <div class="contact">
+        <div><span class="name"><%= contact.name %></span></div>
+        <div><span class="email"><%= contact.email %></span></div>
+        <% contact.phones.each do |phone| %>
+          <div><span class="tel"><%= phone.format_number %></span></div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+

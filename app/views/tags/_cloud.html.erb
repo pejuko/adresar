@@ -1,0 +1,5 @@
+<div class="tags">
+  <% tags.each do |tag| %>
+    <span class="tag" style="font-size:<%= font_size tag %>"><%= link_to tag.name, tag %></span>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<h1><%= t(:page_title) %></h1>
+
+<form>
+  <input type="text" name="query" id="query" />
+  <input type="submit" name="search" value="<%= t(:search) %>" />
+</form>
+</script>
+
+<br />
+
+<table>
+  <tr>
+  <% @firms.each do |firm| %>
+    <tr>
+      <td><%= firm.ico %></td>
+      <td><%= link_to firm.title, firm %></td>
+      <td><a href="<%= firm.web %>"><%= firm.web %></a></td>
+      <td><%= firm.note %></td>
+    </tr>
+  <% end %>
+</table>

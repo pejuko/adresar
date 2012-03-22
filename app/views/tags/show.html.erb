@@ -1,0 +1,4 @@
+<h2><%= @tag.name %></h2>
+<% @firms.each do |firm| %>
+  <%= render :partial => 'firms/entry', :locals => {:firm => firm} %>
+<% end %>

@@ -1,0 +1,26 @@
+<%= form.fields_for :contacts do |f| %>
+  <b><%= t(:contact) %></b>
+  <% unless f.object.nil? || f.object.new_record? %>
+    <span class="field">
+      <%= f.check_box :_destroy %>
+      <%= f.label :_destroy, t(:remove) %>
+    </span>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="phone_numbers">
+    <% f.object.phones.build if f.object %>
+    <%= render :partial => 'phones/form',
+               :locals  => {:form => f} %>
+  </div>
+
+<% end %>

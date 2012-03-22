@@ -1,0 +1,13 @@
+<%= form.fields_for :phones do |f| %>
+  <div class="field">
+    <%= f.label :number, t(:phone_number) %>
+    <% unless f.object.nil? || f.object.new_record? %>
+      <span class="field">
+        <%= f.check_box :_destroy %>
+        <%= f.label :_destroy, t(:remove) %>
+      </span>
+    <% end %>
+    <br />
+    <%= f.text_field :number %>
+  </div>
+<% end %>
