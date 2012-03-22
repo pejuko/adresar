@@ -95,7 +95,11 @@ private
     new_tags = []
     keys.each do |k|
       tag = Tag.find_or_create_by_name(tags[k]["name"])
-      @firm.tags.delete(tag) if tags[k]["_destroy"] == "1"
+      if tags[k]["_destroy"] == "1"
+        @firm.tags.delete(tag)
+      else
+        new_tags << tag
+      end
     end
     new_tags.each { |t| @firm.tags << t unless @firm.tags.include?(t) }
   end
