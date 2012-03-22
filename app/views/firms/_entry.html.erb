@@ -6,6 +6,7 @@
   <% firm.addresses.each do |address| %>
     <b><%= t(:address) %></b><br />
     <div class="adr">
+      <div class="name"><%= address.name %></div>
       <div class="street-address"><%= address.street %></div>
       <div><span class="postal-code"><%= address.psc %></span>&nbsp;<span class="locality"><%= address.city %></span></div>
     </div>
