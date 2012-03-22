@@ -1,5 +1,5 @@
 class Phone < ActiveRecord::Base
-  FORMAT_REGEXP = /^((?:\+|00)\d\d\d)?(\d+)$/
+  FORMAT_REGEXP = /^((?:|\+|00)\d\d\d)?([\d ]+)$/
 
   validates :number, :format => { :with => FORMAT_REGEXP }
 
