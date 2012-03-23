@@ -94,6 +94,7 @@ private
     keys = tags.keys.sort
     new_tags = []
     keys.each do |k|
+      next if tags[k]["name"].to_s.strip.empty?
       tag = Tag.find_or_create_by_name(tags[k]["name"])
       if tags[k]["_destroy"] == "1"
         @firm.tags.delete(tag)
