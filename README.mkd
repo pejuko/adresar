@@ -1,0 +1,3 @@
+# ADRESAR
+
+Sample application in Ruby on Rails.
